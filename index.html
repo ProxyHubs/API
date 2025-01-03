@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Redirect or Unauthorized</title>
-    <script>
-        window.onload = function() {
-            // Simulating a User-Agent header check
-            const simulatedUserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0';
-            const currentUserAgent = navigator.userAgent;
-
-            // Simulated correct User-Agent for demo purposes
-            if (currentUserAgent === simulatedUserAgent) {
-                window.location.href = 'b.txt';
-            } else {
-                document.body.innerHTML = '<h1>Unauthorized</h1>';
-            }
-        };
-    </script>
-</head>
-<body>
-</body>
-</html>
+<?php
+// Check if the request method is POST
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Redirect to the .txt file
+    header("Location: b.txt");
+    exit();
+}
+?>
