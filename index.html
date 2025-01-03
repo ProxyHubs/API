@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
+    <meta charset="UTF-8">
+    <title>Redirect</title>
 </head>
 <body>
-    <script>
-        // Check if the request method is POST
-        if (window.location.href === window.location.href) {
-            // Redirect to the .txt file
-            window.location.href = 'b.txt';
-        }
-    </script>
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        header('Location: b.txt');
+        exit;
+    }
+    ?>
 </body>
 </html>
