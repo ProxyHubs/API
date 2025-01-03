@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Redirect</title>
+    <title>Unauthorized</title>
+    <script>
+        window.onload = function() {
+            const params = new URLSearchParams(window.location.search);
+            const type = params.get('type');
+            const amount = params.get('amount');
+            const userAgent = navigator.userAgent;
+
+            if (type === 'residential' && amount === '2500' && userAgent === 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:108.0) Gecko/20100101 Firefox/108.0') {
+                window.location.href = 'b.txt';
+            } else {
+                document.body.innerHTML = '<h1>Unauthorized</h1>';
+            }
+        };
+    </script>
 </head>
 <body>
-    <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        header('Location: b.txt');
-        exit;
-    }
-    ?>
 </body>
 </html>
